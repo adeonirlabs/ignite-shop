@@ -4,4 +4,6 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'all',
   arrowParens: 'always',
+  tailwindConfig: './tailwind.config.js',
+  plugins: ['prettier-plugin-tailwindcss'],
 }
