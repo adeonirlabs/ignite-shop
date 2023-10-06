@@ -1,4 +1,5 @@
 'use client'
+
 import 'swiper/css'
 
 import { Loader } from 'lucide-react'
@@ -23,13 +24,16 @@ export const Carousel = () => {
     getData().then((res) => setProducts(res.data))
   }, [])
 
+  if (products.length === 0) {
+    return (
+      <div className="grid h-full w-full place-content-center">
+        <Loader className="h-8 w-8 animate-spin text-teal-500" />
+      </div>
+    )
+  }
+
   return (
     <Swiper spaceBetween={40} width={656}>
-      {products.length === 0 && (
-        <div className="grid h-full w-full place-content-center">
-          <Loader className="h-8 w-8 animate-spin text-teal-500" />
-        </div>
-      )}
       {products.map((product) => (
         <SwiperSlide key={product.id}>
           <Link href={`/products/${product.id}`} className="group shrink-0 overflow-hidden" prefetch={false}>
