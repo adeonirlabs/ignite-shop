@@ -10,6 +10,7 @@ export async function GET() {
   const products = response.data.map((product) => ({
     id: product.id,
     name: product.name,
+    description: product.description,
     image: product.images[0],
     price: (product.default_price as Stripe.Price).unit_amount,
   }))
