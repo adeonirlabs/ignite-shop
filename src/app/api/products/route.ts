@@ -15,5 +15,5 @@ export async function GET() {
     price: (product.default_price as Stripe.Price).unit_amount,
   }))
 
-  return Response.json({ data: products })
+  return Response.json(products)
 }

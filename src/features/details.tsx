@@ -13,12 +13,11 @@ export const Details = ({ id }: { id: string }) => {
   const [loading, setLoading] = useState(false)
 
   const getData = async (id: string) => {
-    const response = await fetch(`/api/products/${id}`)
-    return response.json()
+    return await fetch(`/api/products/${id}`).then((res) => res.json())
   }
 
   useEffect(() => {
-    getData(id).then((res) => setProduct(res.data))
+    getData(id).then((data) => setProduct(data))
   }, [id])
 
   const handleCheckout = async () => {

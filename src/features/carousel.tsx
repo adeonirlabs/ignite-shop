@@ -16,12 +16,11 @@ export const Carousel = () => {
   const [products, setProducts] = useState<Product[]>([])
 
   const getData = async () => {
-    const response = await fetch('/api/products')
-    return await response.json()
+    return await fetch('/api/products').then((res) => res.json())
   }
 
   useEffect(() => {
-    getData().then((res) => setProducts(res.data))
+    getData().then((data) => setProducts(data))
   }, [])
 
   if (products.length === 0) {
