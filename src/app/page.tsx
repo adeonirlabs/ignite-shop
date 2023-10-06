@@ -2,6 +2,7 @@
 
 import 'swiper/css'
 
+import { Loader } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -26,10 +27,15 @@ export default function Home() {
   return (
     <main className="ml-auto flex min-h-[656px] w-full max-w-[calc(100vw-((100vw-1152px)/2))] items-center justify-start px-4">
       <Swiper spaceBetween={40} width={656}>
+        {products.length === 0 && (
+          <div className="grid h-full w-full place-content-center">
+            <Loader className="h-8 w-8 animate-spin text-emerald-500" />
+          </div>
+        )}
         {products.map((product) => (
           <SwiperSlide key={product.id}>
             <Link href={`/products/${product.id}`} className="group shrink-0 overflow-hidden" prefetch={false}>
-              <article className="relative grid content-center rounded-lg bg-gradient-to-b from-teal-500 to-violet-500 p-16">
+              <article className="relative grid place-content-center rounded-lg bg-gradient-to-b from-teal-500 to-violet-500 p-16">
                 <Image src={product.image} alt="" width={520} height={520} className="object-cover" />
                 <footer
                   className={cn(
