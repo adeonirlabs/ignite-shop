@@ -28,7 +28,7 @@ export default function Home() {
       <Swiper spaceBetween={40} width={656}>
         {products.map((product) => (
           <SwiperSlide key={product.id}>
-            <Link href={product.id} className="group shrink-0 overflow-hidden">
+            <Link href={`/products/${product.id}`} className="group shrink-0 overflow-hidden">
               <article className="relative grid content-center rounded-lg bg-gradient-to-b from-teal-500 to-violet-500 p-16">
                 <Image src={product.image} alt="" width={520} height={520} className="object-cover" />
                 <footer
