@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import type { Product } from '~/types'
 import { cn } from '~/utils/classNames'
+import { formatMoney } from '~/utils/formatMoney'
 
 const getData = async () => {
   const res = await fetch('/products')
@@ -37,7 +38,7 @@ export default function Home() {
                   )}
                 >
                   <strong className="text-xl">{product.name}</strong>
-                  <span className="text-2xl font-bold text-emerald-500">{product.price}</span>
+                  <span className="text-2xl font-bold text-emerald-500">{formatMoney(product.price)}</span>
                 </footer>
               </article>
             </Link>
