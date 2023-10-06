@@ -48,7 +48,7 @@ export default function Product({ params }: { params: { id: string } }) {
     <main className="mx-auto flex min-h-[656px] w-full max-w-6xl items-stretch gap-12 px-4">
       {!product ? (
         <div className="grid h-full w-full place-content-center">
-          <Loader className="h-8 w-8 animate-spin text-emerald-500" />
+          <Loader className="h-8 w-8 animate-spin text-teal-500" />
         </div>
       ) : (
         <>
@@ -57,12 +57,12 @@ export default function Product({ params }: { params: { id: string } }) {
           </picture>
           <div className="flex flex-col gap-4">
             <h1 className="text-3xl font-bold">{product.name}</h1>
-            <span className="text-3xl text-emerald-500">{formatMoney(product.price)}</span>
+            <span className="text-3xl text-teal-500">{formatMoney(product.price)}</span>
             <span>{product.description}</span>
             <button
               className={cn(
-                'mt-auto rounded-lg bg-emerald-600 p-4 transition',
-                'enabled:hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-60',
+                'mt-auto rounded-lg bg-teal-600 p-4 transition',
+                'enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-60',
               )}
               type="button"
               disabled={loading}

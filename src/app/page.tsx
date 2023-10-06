@@ -29,7 +29,7 @@ export default function Home() {
       <Swiper spaceBetween={40} width={656}>
         {products.length === 0 && (
           <div className="grid h-full w-full place-content-center">
-            <Loader className="h-8 w-8 animate-spin text-emerald-500" />
+            <Loader className="h-8 w-8 animate-spin text-teal-500" />
           </div>
         )}
         {products.map((product) => (
@@ -44,7 +44,7 @@ export default function Home() {
                   )}
                 >
                   <strong className="text-xl">{product.name}</strong>
-                  <span className="text-2xl font-bold text-emerald-500">{formatMoney(product.price)}</span>
+                  <span className="text-2xl font-bold text-teal-500">{formatMoney(product.price)}</span>
                 </footer>
               </article>
             </Link>
