@@ -13,8 +13,8 @@ import { cn } from '~/utils/classNames'
 import { formatMoney } from '~/utils/formatMoney'
 
 const getData = async () => {
-  const res = await fetch('/api/products')
-  return res.json()
+  const response = await fetch('/api/products')
+  return response.json()
 }
 
 export default function Home() {
