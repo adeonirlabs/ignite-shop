@@ -24,7 +24,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="ml-auto flex min-h-[656px] w-full max-w-[calc(100vw-((100vw-1152px)/2))] items-center justify-start px-4">
+    <main className="ml-auto flex w-full max-w-[calc(100vw-((100vw-1152px)/2))] items-center justify-start px-4">
       <Swiper spaceBetween={40} width={656}>
         {products.map((product) => (
           <SwiperSlide key={product.id}>
