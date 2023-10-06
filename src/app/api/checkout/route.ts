@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     return new Response('Invalid request', { status: 400 })
   }
 
-  const successUrl = `${process.env.BASE_URL}/success`
+  const successUrl = `${process.env.BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`
   const cancelUrl = `${process.env.BASE_URL}/products/${id}`
 
   const session = await stripe.checkout.sessions.create({
