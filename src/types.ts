@@ -6,3 +6,13 @@ export interface Product {
   price: number
   priceId: string
 }
+
+export interface Success {
+  customer: string
+  product: Product
+}
+
+export interface Product {
+  name: string
+  image: string
+}
