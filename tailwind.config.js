@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
+      animation: {
+        spin: 'spin 3s linear infinite',
+      },
     },
   },
   plugins: [],
