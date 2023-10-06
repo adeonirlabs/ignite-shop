@@ -24,11 +24,11 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="ml-auto flex w-full max-w-[calc(100vw-((100vw-1152px)/2))] items-center justify-start px-4">
+    <main className="ml-auto flex min-h-[656px] w-full max-w-[calc(100vw-((100vw-1152px)/2))] items-center justify-start px-4">
       <Swiper spaceBetween={40} width={656}>
         {products.map((product) => (
           <SwiperSlide key={product.id}>
-            <Link href={`/products/${product.id}`} className="group shrink-0 overflow-hidden">
+            <Link href={`/products/${product.id}`} className="group shrink-0 overflow-hidden" prefetch={false}>
               <article className="relative grid content-center rounded-lg bg-gradient-to-b from-teal-500 to-violet-500 p-16">
                 <Image src={product.image} alt="" width={520} height={520} className="object-cover" />
                 <footer
