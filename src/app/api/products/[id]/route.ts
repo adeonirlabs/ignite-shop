@@ -15,6 +15,7 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
     description: response.description,
     image: response.images[0],
     price: (response.default_price as Stripe.Price).unit_amount,
+    priceId: (response.default_price as Stripe.Price).id,
   }
 
   return Response.json({ data: product })
