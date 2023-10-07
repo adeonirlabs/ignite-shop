@@ -51,7 +51,7 @@ export const Details = ({ id }: { id: string }) => {
   }
 
   return (
-    <>
+    <section className="flex items-stretch gap-12">
       <picture className="grid h-[656px] w-[656px] shrink-0 place-content-center rounded-lg bg-gradient-to-b from-teal-500 to-violet-500 p-16">
         <Image src={product.image} alt="" width={520} height={520} className="object-cover" />
       </picture>
@@ -71,6 +71,6 @@ export const Details = ({ id }: { id: string }) => {
           Comprar agora
         </button>
       </div>
-    </>
+    </section>
   )
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { Details } from '~/features/details'
+import { Details } from '~/components/details'
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const id = params.id
@@ -16,7 +16,7 @@ export default function Product({ params }: { params: { id: string } }) {
   const id = params.id
 
   return (
-    <main className="mx-auto flex min-h-[656px] w-full max-w-6xl items-stretch gap-12 px-4">
+    <main className="min-h-164 mx-auto w-full max-w-6xl px-4">
       <Details id={id} />
     </main>
   )

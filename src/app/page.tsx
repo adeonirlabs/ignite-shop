@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { Carousel } from '~/features/carousel'
+import { Carousel } from '~/components/carousel'
 import { cn } from '~/utils/classNames'
 
 export const metadata: Metadata = {
@@ -10,12 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main
-      className={cn(
-        'ml-auto flex w-full items-center justify-start px-4',
-        'min-h-[656px] max-w-[calc(100vw-((100vw-1152px)/2))]',
-      )}
-    >
+    <main className={cn('max-w-full-end min-h-164 ml-auto w-full px-4')}>
       <Carousel />
     </main>
   )
