@@ -4,7 +4,7 @@ import { Loader } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-import type { Product } from '~/types'
+import type { Product } from '~/models/product'
 import { cn } from '~/utils/classNames'
 import { formatMoney } from '~/utils/formatMoney'
 

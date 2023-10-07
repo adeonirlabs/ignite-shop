@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-import type { Success } from '~/types'
+import type { Success } from '~/models/success'
 
 export const Result = ({ sessionId }: { sessionId: string }) => {
   const [success, setSuccess] = useState<Success>()

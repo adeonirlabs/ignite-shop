@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import type { Product } from '~/types'
+import type { Product } from '~/models/product'
 import { cn } from '~/utils/classNames'
 import { formatMoney } from '~/utils/formatMoney'
 
