@@ -68,7 +68,7 @@ export const Details = ({ id }: { id: string }) => {
           disabled={loading}
           onClick={handleCheckout}
         >
-          Comprar agora
+          Colocar na sacola
         </button>
       </div>
     </section>
