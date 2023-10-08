@@ -15,12 +15,15 @@ export async function GET(request: NextRequest) {
     expand: ['line_items', 'line_items.data.price.product'],
   })
 
+  const products = session.line_items?.data.map((item) => ({
+    id: (item.price?.product as Stripe.Product).id,
+    name: (item.price?.product as Stripe.Product).name,
+    image: (item.price?.product as Stripe.Product).images[0],
+  }))
+
   const success = {
     customer: session.customer_details?.name,
-    product: {
-      name: (session.line_items?.data[0].price?.product as Stripe.Product).name,
-      image: (session.line_items?.data[0].price?.product as Stripe.Product).images[0],
-    },
+    products,
   }
 
   return Response.json({ data: success })
