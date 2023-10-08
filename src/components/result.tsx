@@ -41,7 +41,7 @@ export const Result = ({ sessionId }: { sessionId: string }) => {
           <picture
             key={product.id}
             className={cn(
-              'shadow-3xl grid h-36 w-36 shrink-0 place-content-center rounded-full',
+              'grid h-36 w-36 shrink-0 place-content-center rounded-full shadow-3xl',
               'absolute left-0 bg-gradient-to-b from-teal-500 to-violet-500 p-4',
             )}
             style={{ transform: `translateX(${index * 96}px)` }}
