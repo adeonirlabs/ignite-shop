@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className={cn('max-w-full-end min-h-164 ml-auto w-full px-4')}>
+    <main className={cn('ml-auto min-h-164 w-full max-w-full-end px-4')}>
       <Carousel />
     </main>
   )

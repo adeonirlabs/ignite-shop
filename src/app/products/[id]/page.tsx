@@ -16,7 +16,7 @@ export default function Product({ params }: { params: { id: string } }) {
   const id = params.id
 
   return (
-    <main className="min-h-164 mx-auto w-full max-w-6xl px-4">
+    <main className="mx-auto min-h-164 w-full max-w-6xl px-4">
       <Details id={id} />
     </main>
   )
