@@ -9,11 +9,13 @@ import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import type { Product } from '~/models/product'
+import { useCartStore } from '~/store/cart'
 import { cn } from '~/utils/classNames'
 import { formatMoney } from '~/utils/formatMoney'
 
 export const Carousel = () => {
   const [products, setProducts] = useState<Product[]>([])
+  const add = useCartStore((state) => state.add)
 
   const getData = async () => {
     return await fetch('/api/products').then((res) => res.json())
@@ -22,10 +24,6 @@ export const Carousel = () => {
   useEffect(() => {
     getData().then((data) => setProducts(data))
   }, [])
-
-  const handleAddToCart = async (id: string) => {
-    console.log(id)
-  }
 
   if (products.length === 0) {
     return (
@@ -62,7 +60,7 @@ export const Carousel = () => {
               <button
                 title="Colocar na sacola"
                 className="rounded-md bg-teal-600 p-2 transition hover:bg-teal-500"
-                onClick={() => handleAddToCart(product.id)}
+                onClick={() => add(product)}
               >
                 <ShoppingBag className="h-8 w-8" />
               </button>

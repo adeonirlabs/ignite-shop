@@ -5,12 +5,13 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 import type { Product } from '~/models/product'
+import { useCartStore } from '~/store/cart'
 import { cn } from '~/utils/classNames'
 import { formatMoney } from '~/utils/formatMoney'
 
 export const Details = ({ id }: { id: string }) => {
   const [product, setProduct] = useState<Product>()
-  const [loading, setLoading] = useState(false)
+  const add = useCartStore((state) => state.add)
 
   const getData = async (id: string) => {
     return await fetch(`/api/products/${id}`).then((res) => res.json())
@@ -19,28 +20,6 @@ export const Details = ({ id }: { id: string }) => {
   useEffect(() => {
     getData(id).then((data) => setProduct(data))
   }, [id])
-
-  const handleCheckout = async () => {
-    try {
-      setLoading(true)
-      const response = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          id: product?.id,
-          priceId: product?.priceId,
-        }),
-      })
-
-      const url = await response.json()
-      window.location.href = url
-    } catch (error) {
-      setLoading(false)
-      console.error(error)
-    }
-  }
 
   if (!product) {
     return (
@@ -65,8 +44,7 @@ export const Details = ({ id }: { id: string }) => {
             'enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-60',
           )}
           type="button"
-          disabled={loading}
-          onClick={handleCheckout}
+          onClick={() => add(product)}
         >
           Colocar na sacola
         </button>

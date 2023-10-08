@@ -7,9 +7,11 @@ import { useState } from 'react'
 
 import logo from '~/assets/logo.svg'
 import { Cart } from '~/components/cart'
+import { useCartStore } from '~/store/cart'
 
 export const Header = () => {
-  const [open, setOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const count = useCartStore((state) => state.count)
 
   return (
     <>
@@ -19,15 +21,15 @@ export const Header = () => {
         </Link>
         <button
           className="relative rounded-md bg-zinc-700 p-2 transition hover:bg-zinc-600"
-          onClick={() => setOpen(true)}
+          onClick={() => setIsOpen(true)}
         >
           <ShoppingBag className="h-8 w-8" />
           <span className="absolute -right-2.5 -top-2.5 grid h-5 w-5 place-content-center rounded-full bg-teal-500 text-xs">
-            3
+            {count}
           </span>
         </button>
       </header>
-      <Cart open={open} onClose={() => setOpen(false)} />
+      <Cart isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   )
 }
