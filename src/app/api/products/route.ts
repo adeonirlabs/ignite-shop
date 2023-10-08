@@ -13,6 +13,7 @@ export async function GET() {
     description: product.description,
     image: product.images[0],
     price: (product.default_price as Stripe.Price).unit_amount,
+    priceId: (product.default_price as Stripe.Price).id,
   }))
 
   return Response.json(products)

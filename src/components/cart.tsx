@@ -2,6 +2,7 @@
 
 import { Trash2, X } from 'lucide-react'
 import Image from 'next/image'
+import { useState } from 'react'
 
 import { useOutsideClick } from '~/hooks/click-outside'
 import { useCartStore } from '~/store/cart'
@@ -15,7 +16,31 @@ interface Props {
 
 export const Cart = ({ isOpen, onClose }: Props) => {
   const { ref } = useOutsideClick(onClose)
+  const [isLoading, setIsLoading] = useState(false)
   const { cart, remove } = useCartStore((state) => ({ cart: state.cart, remove: state.remove }))
+
+  const handleCheckout = async () => {
+    const products = cart.map((product) => ({
+      priceId: product.priceId,
+    }))
+
+    try {
+      setIsLoading(true)
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cartItems: products }),
+      })
+
+      const url = await response.json()
+      window.location.href = url
+    } catch (error) {
+      setIsLoading(false)
+      console.error(error)
+    }
+  }
 
   return (
     <section
@@ -55,7 +80,8 @@ export const Cart = ({ isOpen, onClose }: Props) => {
       </div>
       <button
         type="button"
-        disabled={cart.length === 0}
+        disabled={cart.length === 0 || isLoading}
+        onClick={handleCheckout}
         className={cn(
           'mt-auto w-full rounded-lg bg-teal-600 p-4 transition',
           'enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-60',
