@@ -6,6 +6,9 @@ module.exports = {
       animation: {
         spin: 'spin 3s linear infinite',
       },
+      boxShadow: {
+        '3xl': '0px 0px 60px 0px rgba(0, 0, 0, 0.80)',
+      },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
