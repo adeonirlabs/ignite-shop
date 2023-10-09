@@ -4,7 +4,7 @@ import { Details } from '~/components/details'
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const id = params.id
-  const product = await fetch(`/api/products/${id}`).then((res) => res.json())
+  const product = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`).then((res) => res.json())
 
   return {
     title: `${product.name} | Ignite Shop`,

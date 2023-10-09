@@ -13,8 +13,8 @@ export async function POST(request: Request) {
     quantity: 1,
   }))
 
-  const successUrl = `${process.env.BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`
-  const cancelUrl = `${process.env.BASE_URL}/`
+  const successUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`
+  const cancelUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/`
 
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
