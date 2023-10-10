@@ -24,7 +24,7 @@ export const Header = () => {
           onClick={() => setIsOpen(true)}
         >
           <ShoppingBag className="h-8 w-8" />
-          <span className="absolute -right-2.5 -top-2.5 grid h-5 w-5 place-content-center rounded-full bg-teal-500 text-xs">
+          <span className="absolute -right-2.5 -top-2.5 grid h-5 w-5 place-content-center rounded-full bg-teal-500 text-xs font-bold">
             {count}
           </span>
         </button>

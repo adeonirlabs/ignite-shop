@@ -9,14 +9,19 @@ interface Cart {
   remove: (productId: string) => void
 }
 
-export const useCartStore = create<Cart>((set) => ({
+export const useCartStore = create<Cart>((set, get) => ({
   cart: [],
   count: 0,
   add: (product) => {
-    set((state) => ({
-      cart: [...state.cart, product],
-      count: state.count + 1,
-    }))
+    const inCart = get().cart.find((item) => item.id === product.id)
+    set((state) =>
+      inCart
+        ? state
+        : {
+            cart: [...state.cart, product],
+            count: state.count + 1,
+          },
+    )
   },
   remove: (productId) => {
     set((state) => ({
