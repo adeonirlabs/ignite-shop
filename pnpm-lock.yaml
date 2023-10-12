@@ -82,6 +82,9 @@ devDependencies:
   prettier-plugin-tailwindcss:
     specifier: 0.5.5
     version: 0.5.5(prettier@3.0.3)
+  react-github-corner:
+    specifier: 2.5.0
+    version: 2.5.0(react@18.2.0)
   tailwind-merge:
     specifier: 1.14.0
     version: 1.14.0
@@ -2770,6 +2773,15 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-github-corner@2.5.0(react@18.2.0):
+    resolution: {integrity: sha512-ofds9l6n61LJc6ML+jSE6W9ZSQvATcMR9evnHPXua1oDYj289HKODnVqFUB/g2a4ieBjDHw416iHP3MjqnU76Q==}
+    engines: {node: '>= 4.0.0'}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: true
+
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
@@ -2779,7 +2791,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
